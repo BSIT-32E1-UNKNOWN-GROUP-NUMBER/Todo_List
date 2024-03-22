@@ -2,32 +2,65 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using Todo_List.Models;
-using Todo_List.Data; 
-using System.Linq; 
+using Todo_List.Data;
+using System.Linq;
 
 namespace Todo_List.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly TaskContext _context; 
+        private readonly TaskContext _context;
 
-        public HomeController(ILogger<HomeController> logger, TaskContext context) 
+        public HomeController(ILogger<HomeController> logger, TaskContext context)
         {
             _logger = logger;
-            _context = context; 
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            var tasks = _context.Tasks.ToList(); // Retrieve tasks from the database
-            return View(tasks); // Pass tasks to the view
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (userId == null)
+            {
+                
+                return View();
+            }
+
+            var user = _context.Users.Find(userId.Value); 
+            if (user != null)
+            {
+                ViewBag.Username = user.Username; 
+            }
+
+            var tasks = _context.Tasks.Where(t => t.UserId == userId.Value).ToList(); 
+            return View(tasks); 
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+
+        public IActionResult Task()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (userId == null)
+            {
+                
+                return View();
+            }
+
+            var user = _context.Users.Find(userId.Value); 
+            if (user != null)
+            {
+                ViewBag.Username = user.Username; 
+            }
+
+            var tasks = _context.Tasks.Where(t => t.UserId == userId.Value).ToList();
+            return View(tasks);
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index"); 
         }
     }
 }

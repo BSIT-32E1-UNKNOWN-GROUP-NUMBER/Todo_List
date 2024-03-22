@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="name-container">
-                <h4 class="name">Rogel Gerodiaz</h4>
+                <h4 class="name">Username: @ViewBag.Username</h4>
             </div>
         </div>
         <div class="line-container">
@@ -34,7 +34,14 @@
                         <h3 class="items">Work</h3>
                     </div>
                 </div>
+
+
             </div>
+            <form>
+                <div class="logout-container">
+                    <a href="/Home/Logout" class="logout">Logout</a>
+                </div>
+            </form>
         </div>
     </div>
     <div class="right-container">
@@ -46,6 +53,7 @@
 
                 <form asp-action="Create" asp-controller="Tasks" method="post">
                     @Html.AntiForgeryToken()
+                    @Html.Hidden("UserId", (ViewBag.UserId != null) ? (int)ViewBag.UserId : 0)
                     <div class="input-maincontainer">
                         <div class="input-box">
                             <div class="three-circles-container">

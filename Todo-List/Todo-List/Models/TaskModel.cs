@@ -9,10 +9,10 @@ namespace Todo_List.Models
         public string PriorityLevel { get; set; } = "Default"; 
         public bool CompletionStatus { get; set; } 
 
-        // Foreign key for User
+      
         public int UserId { get; set; }
 
-        // Navigation property
+
         public User? User { get; set; }
     }
 
