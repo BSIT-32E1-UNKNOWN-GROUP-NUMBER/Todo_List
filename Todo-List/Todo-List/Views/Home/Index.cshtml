@@ -1,8 +1,101 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<Todo_List.Models.TaskModel>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<link rel="stylesheet" href="~/css/index.css">
+
+<div class="main">
+    <div class="left-container">
+        <div class="upper-container">
+            <div class="circle-container">
+                <div class="circle">
+
+                </div>
+            </div>
+            <div class="name-container">
+                <h4 class="name">Rogel Gerodiaz</h4>
+            </div>
+        </div>
+        <div class="line-container">
+            <div class="line"></div>
+        </div>
+        <div class="side-content-container">
+            <div class="content-container">
+                <h3 class="today-tasks">Today tasks</h3>
+                <div class="item-container">
+                    <div class="item-sec-container">
+                        <div class="circle1"></div>
+                        <h3 class="items">Personal</h3>
+                    </div>
+                    <div class="item-sec-container">
+                        <div class="circle2"></div>
+                        <h3 class="items">Freelance</h3>
+                    </div>
+                    <div class="item-sec-container">
+                        <div class="circle3"></div>
+                        <h3 class="items">Work</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right-container">
+        <div class="box-container">
+            <div class="right-box">
+                <div class="title-container">
+                    <h4 class="title">To-do List</h4>
+                </div>
+
+                <form asp-action="Create" asp-controller="Tasks" method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="input-maincontainer">
+                        <div class="input-box">
+                            <div class="three-circles-container">
+                                <div class="circle1"></div>
+                                <div class="circle2"></div>
+                                <div class="circle3"></div>
+                                <input type="text" placeholder="What is your next tasks?" class="input-field"
+                                    name="Description">
+                                <select name="Category" class='select-input'>
+                                    <option value="">Choose Category</option>
+                                    <option value="Personal">Personal</option>
+                                    <option value="Freelance">Freelance</option>
+                                    <option value="Work">Work</option>
+                                </select>
+                                <input type="datetime-local" id="dateTimeInput" class='date' name="DueDate">
+                                @* <button type="submit"><box-icon name='edit-save' size='38px'
+                                class='edit-save'></box-icon></button> *@
+                                <button type="submit"><box-icon name='save' size='38px' class='save-icon'
+                                        style="z-index: 0;"></box-icon></button>
+                                <button type="submit"><box-icon name='add-to-queue' size='38px' class="save-edit-icon"
+                                        style="visibility: hidden; z-index: 1"></box-icon></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="tasks-container">
+                    @foreach (var task in Model)
+                    {
+                        <div class="input-box-tasks">
+                            <div
+                                class="tasks-circle @(task.Category == "Personal" ? "tasks-circle1" : task.Category == "Freelance" ? "tasks-circle2" : "tasks-circle3")">
+                            </div>
+                            <h3 class="tasks-text">@task.Description</h3>
+                            <div class="time-container">
+                                <h3 class="tasks-time">@task.DueDate.ToString("hh:mm tt")</h3>
+                            </div>
+                            <h3
+                                class='category-text @(task.Category == "Personal" ? "category-text1" : task.Category == "Freelance" ? "category-text2" : "category-text3")'>
+                                @task.Category</h3>
+                            <input type="hidden" class="task-id" value="@task.Id" />
+                            <box-icon name='edit-alt' size='38px' class='edit-icon' data-id='@task.Id'></box-icon>
+                            <box-icon name='trash' size='38px' color='red' class='delete-icon'
+                                data-id='@task.Id'></box-icon>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
