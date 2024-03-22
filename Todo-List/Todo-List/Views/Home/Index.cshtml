@@ -8,7 +8,30 @@
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>
-            
         </form>
+        <a href="#" data-toggle="modal" data-target="#createAccountModal" class="caccount">Create an Account</a>
     </div>
 </div>
+
+<!-- Create Account Modal -->
+<div class="modal fade" id="createAccountModal" tabindex="-1" role="dialog" aria-labelledby="createAccountModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createAccountModalLabel">Create Account</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" class="create-account">Create Account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
