@@ -11,5 +11,6 @@ namespace Todo_List.Data
         }
 
         public DbSet<TaskModel> Tasks { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

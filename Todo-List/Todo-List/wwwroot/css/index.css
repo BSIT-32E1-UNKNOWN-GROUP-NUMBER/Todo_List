@@ -1,8 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 .main {
     display: flex;
@@ -11,8 +6,8 @@
 }
 
 .circle {
-    width: 90px;
-    height: 90px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
     background-color: #D9D9D9;
 }
@@ -25,7 +20,14 @@
 .name {
   font-size: 28px;
   font-weight: 600;
+  font-size: 1em;
   color: white;
+}
+
+.left-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: -35%;
 }
 
 .name-container {
@@ -46,14 +48,14 @@
 }
 
 .right-box {
-    width: 1670px;
-    height: 980px;
+    width: 1510px;
+    height: 800px;
     background-color: #676363;
     border-radius: 2%;
 }
 
 .box-container {
-    margin-left: 19%;
+    margin-left: 12%;
     margin-top: 2%;
 }
 
@@ -82,8 +84,8 @@
 
 .input-maincontainer{
     display: flex;
-    margin-left: 15%;
-    margin-top: 1%;
+    margin-left: 18%;
+    margin-top: 2%;
     margin-bottom: 3%;
 }
 
@@ -91,7 +93,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 12.8%;
+    margin-left: 19.8%;
     margin-top: 0%;
     margin-bottom: 2%;
     overflow-x: auto;
@@ -102,8 +104,8 @@
 
 .input-box {
     max-width: 100%;
-    width: 1200px;
-    height: 100px;
+    width: 1000px;
+    height: 80px;
     background-color: #C1AFF5;
     border-radius: 20px;
 }
@@ -115,8 +117,8 @@
     align-items: center; 
     justify-content: flex-start; 
     gap: 40px; 
-    width: 1100px;
-    height: 100px;
+    width: 800px;
+    height: 75px;
     background-color: #C1AFF5;
     border-radius: 20px;
     margin-bottom: 2%;
@@ -129,22 +131,22 @@
 }
 
 .circle1 {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 15px;
     border-radius: 100%;
     background-color: #F33B3B;
 }
 
 .circle2 {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 15px;
     border-radius: 100%;
     background-color: #1429EB;
 }
 
 .circle3 {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 15px;
     border-radius: 100%;
     background-color: #F0F41E;
 }
@@ -158,8 +160,8 @@
 }
 
 .tasks-circle1 {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 13px;
     border-radius: 100%;
     background-color: #F33B3B;
     margin-top: 0%;
@@ -167,8 +169,8 @@
 }
 
 .tasks-circle2 {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 13px;
     border-radius: 100%;
     background-color: #1429EB;
     margin-top: 0%;
@@ -176,8 +178,8 @@
 }
 
 .tasks-circle3 {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 13px;
     border-radius: 100%;
     background-color: #F0F41E;
     margin-top: 0%;
@@ -186,24 +188,26 @@
 
 .tasks-text {
     flex-grow: 2; 
-    font-size: 1.5em;
+    font-size: 18px;
     font-weight: 400;
     font-family: Inter, sans-serif;
     margin-right: 20%; 
+    margin-top: 1%;
 }
 
 .time-container {
     margin-left: 5%;
     position: absolute;
     right: 30%;
-    left: 55%;
+    left: 45%;
 }
 
 .tasks-time {
-    margin-left: -67%;
-    font-size: 1.5em;
+    margin-left: 4%;
+    font-size: 14px;
     font-weight: 400;
     font-family: Inter, sans-serif;
+    margin-top: 5%;
 }
 
 .side-content-container {
@@ -251,6 +255,7 @@
     transform: scale(1.2);
 }
 
+
 .edit-icon:hover {
     cursor: pointer;
     transform: scale(1.2);
@@ -261,16 +266,17 @@
     background-color: #C1AFF5;
     border: none;
     outline: none;
-    font-size: 22px;
+    font-size: 18px;
     font-family: Inter, sans-serif;
     margin-top: -1%;
+    margin-top: -3%;
 }
 
 .select-input {
     background-color: #C1AFF5;
     border: none;
     outline: none;
-    font-size: 19px;
+    font-size: 15px;
     font-family: Inter, sans-serif;
     margin-top: -1%;
     margin-left: 9%;
@@ -289,7 +295,7 @@
 
 .save-icon {
     position: absolute;
-    top: 203px;
+    top: 155px;
 }
 
 .save-edit-icon {
@@ -317,20 +323,20 @@ body {
 }
 
 .category-text1 {
-    font-size: 1.5em;
-    margin-top: -1%;
+    font-size: 14px;
+    margin-top: 1%;
     color: #F33B3B;
 }
 
 .category-text2 {
-    font-size: 1.5em;
-    margin-top: -1%;
+    font-size: 14px;
+    margin-top: 1%;
     color: #1429EB;
 }
 
 .category-text3 {
-    font-size: 1.5em;
-    margin-top: -1%;
+    font-size: 14px;
+    margin-top: 1%;
     color: #F0F41E;
 }
 
@@ -419,5 +425,15 @@ body {
     opacity: 0.8;
 }
 
+.logout-container {
+    margin-top: 90%;
+}
+
+.logout {
+    margin-top: 60%;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(230, 51, 51);
+}
 
 
