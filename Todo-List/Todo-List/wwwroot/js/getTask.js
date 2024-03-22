@@ -1,19 +1,19 @@
-$(document).ready(function () {
-    $('.edit-icon').click(function () {
-        var taskId = parseInt($(this).data('id'));
+document.addEventListener('DOMContentLoaded', function() {
+    var editIcons = document.querySelectorAll('.edit-icon');
+    editIcons.forEach(function(editIcon) {
+        editIcon.addEventListener('click', function() {
+            var taskId = parseInt(this.getAttribute('data-id'));
 
-        $.ajax({
-            url: '/Tasks/GetTask/' + taskId, 
-            type: 'GET',
-            success: function (task) {
-                $('.input-field[name="Description"]').val(task.description);
-                $('.select-input[name="Category"]').val(task.category);
-                $('#dateTimeInput').val(task.dueDate);
-                
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                console.error(textStatus, errorThrown);
-            }
+            fetch('/Tasks/GetTask/' + taskId)
+            .then(response => response.json())
+            .then(task => {
+                document.querySelector('.input-field[name="Description"]').value = task.description;
+                document.querySelector('.select-input[name="Category"]').value = task.category;
+                document.querySelector('#dateTimeInput').value = task.dueDate;
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
         });
     });
 });
