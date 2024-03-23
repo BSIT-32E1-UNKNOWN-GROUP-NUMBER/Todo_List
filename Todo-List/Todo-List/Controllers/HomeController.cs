@@ -43,7 +43,6 @@ namespace Todo_List.Controllers
             var userId = HttpContext.Session.GetInt32("UserId");
             if (userId == null)
             {
-                
                 return View();
             }
 
